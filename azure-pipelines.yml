@@ -10,15 +10,18 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+
 steps:
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
     version: '5.x' # Adjust to your project's .NET version
 
+
 - task: NuGetToolInstaller@1
   inputs:
     versionSpec: '5.x'
+
 
 - task: NuGetCommand@2
   inputs:
@@ -33,5 +36,6 @@ steps:
 
 - task: VSTest@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*test*.dll'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
