@@ -39,3 +39,4 @@ steps:
     testSelector: 'testAssemblies'
     testAssemblyVer2: '**\*test*.dll'
     searchFolder: '$(System.DefaultWorkingDirectory)'
+    
